@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMIS Header & Footer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* General Reset and Base Styles (Updated) */
+        :root{
+            --yellow-color : #f5c217;
+            --blue-color : #199ccf;
+            --primary-color : #104693;
+            --text-gradient : linear-gradient(90deg,#E91E45 .14%,#F6C318 52.09%);
+            --grey-color : #333;
+            --black : #000;
+            --white : #fff
+        }
+        
+        body {
+            font-family: "Montserrat", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--grey-color); /* Updated to use variable */
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Header Styles --- */
+        .header-top-bar {
+            background-color: white; /* Using white for the background */
+            padding: 5px 0;
+        }
+
+        .header-main {
+            background-color: white;
+            padding: 10px 5%;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 50px; /* Adjust as needed */
+            margin-right: 10px;
+        }
+
+        .school-info h1 {
+            font-size: 1.2em;
+            margin: 0;
+            font-weight: bold;
+            color: var(--primary-color); /* Updated to use variable */
+        }
+
+        .school-info p {
+            font-size: 0.8em;
+            margin: 0;
+            color: var(--grey-color); /* Updated to use variable */
+        }
+
+        .school-info p[style*="color: #d32f2f"] {
+            color: #d32f2f; /* Keep red color for CBSE No. */
+        }
+
+
+        .header-links-area {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-icons a {
+            margin-left: 15px;
+            color: var(--primary-color); /* Updated to use variable */
+            font-size: 1.1em;
+        }
+
+        .main-navigation-bar {
+            background-color: white;
+            padding: 0 5%;
+        }
+
+        .main-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            border-bottom: 3px solid var(--primary-color); /* Updated to use variable */
+        }
+
+        .main-nav li {
+            margin-right: 25px;
+        }
+
+        .main-nav a {
+            display: block;
+            padding: 15px 0;
+            font-weight: bold;
+            color: var(--grey-color); /* Updated to use variable */
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
+
+        .main-nav a:hover {
+            color: var(--yellow-color); /* Updated to use variable */
+        }
+
+        .nav-dropdown {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 100%;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-content {
+            display: block;
+        }
+
+        .nav-dropdown-content a {
+            color: var(--black);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        .nav-dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .cmis-portal-btn {
+            background-color: var(--blue-color); /* Updated to use variable */
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .download-brochure-btn {
+            background-color: var(--yellow-color); /* Updated to use variable */
+            color: var(--primary-color); /* Updated to use variable */
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .search-icon {
+            margin-left: 15px;
+            font-size: 1.2em;
+            color: #d32f2f; /* Keep red color */
+        }
+        
+        /* --- Footer Styles --- */
+        .footer-container {
+            background-color: var(--primary-color); /* Updated to use variable */
+            color: var(--white);
+            padding: 40px 5%;
+            font-size: 0.9em;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo-section {
+            width: 30%;
+        }
+
+        .footer-logo-section img {
+            height: 60px; /* Adjust logo size */
+            margin-bottom: 10px;
+        }
+
+        .footer-logo-section h2 {
+            font-size: 1.5em;
+            margin: 0 0 5px 0;
+        }
+
+        .footer-logo-section p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .follow-us a {
+            margin-right: 15px;
+            color: var(--white);
+            font-size: 1.2em;
+        }
+
+        .footer-columns {
+            display: flex;
+            width: 65%;
+            justify-content: space-between;
+        }
+
+        .footer-column {
+            flex: 1;
+            margin-left: 30px;
+        }
+
+        .footer-column h3 {
+            color: var(--yellow-color); /* Updated to use variable */
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--yellow-color); /* Updated to use variable */
+            padding-bottom: 5px;
+        }
+
+        .contact-info p, .footer-column ul li {
+            margin: 10px 0;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--yellow-color); /* Updated to use variable */
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li a {
+            display: block;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--yellow-color); /* Updated to use variable */
+        }
+
+        .footer-bottom-bar {
+            background-color: var(--primary-color); /* Updated to use variable */
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8em;
+            color: var(--white);
+        }
+
+        .footer-bottom-links a {
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--yellow-color); /* Updated to use variable */
+        }
+
+        /* Utility for WhatsApp button/floating element */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366; /* Keep original WhatsApp color */
+            color: var(--white);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        /* Arrow up button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: var(--yellow-color); /* Updated to use variable */
+            color: var(--primary-color); /* Updated to use variable */
+            border-radius: 5px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        /* --- Mock Content Area --- */
+        .main-content {
+            padding: 50px 5%;
+            min-height: 50vh;
+            text-align: center;
+        }
+
+        /* Mobile Adjustments (Basic) */
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-links-area {
+                margin-top: 10px;
+            }
+
+            .main-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .main-nav li {
+                margin: 5px 10px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-logo-section, .footer-columns {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .footer-columns {
+                flex-direction: column;
+            }
+
+            .footer-column {
+                margin-left: 0;
+                margin-bottom: 20px;
+            }
+
+            .footer-bottom-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                margin-top: 10px;
+            }
+
+            .footer-bottom-links a {
+                margin: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-main">
+            <div class="logo-container">
+                
+                <div class="school-info">
+                    <h1>CMIS</h1>
+                    <p>Chandramari International School</p>
+                    <p style="color: #d32f2f;">CBSE Affiliation No. 1931586</p>
+                </div>
+            </div>
+
+            <div class="header-links-area">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#">|</a>
+                    <a href="#">GALLERY</a>
+                    <div class="nav-dropdown" style="display: inline-block;">
+                        ACCOLADES <i class="fas fa-caret-down"></i>
+                        </div>
+                    <a href="#">RESOURCES</a>
+                    <a href="#">CAREERS</a>
+                </div>
+
+                <div class="header-buttons">
+                    <a href="#" class="cmis-portal-btn">CMIS PORTAL</a>
+                    <a href="#" class="download-brochure-btn">DOWNLOAD BROCHURE</a>
+                </div>
+
+                <a href="#" class="search-icon"><i class="fas fa-search"></i></a>
+            </div>
+        </div>
+
+        <div class="main-navigation-bar">
+            <ul class="main-nav">
+                <li><a href="#">HOME</a></li>
+                <li class="nav-dropdown">
+                    <a href="#">ABOUT US <i class="fas fa-caret-down"></i></a>
+                    </li>
+                <li class="nav-dropdown">
+                    <a href="#">ACADEMICS <i class="fas fa-caret-down"></i></a>
+                    </li>
+                <li><a href="#">LIFE AT CMIS</a></li>
+                <li><a href="#">ADMISSIONS</a></li>
+                <li><a href="#">FACILITIES</a></li>
+                <li><a href="#">VALUE JOURNAL</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h2>Content Area</h2>
+        <p>This is where the main body of your webpage would go. The font is now **Montserrat**.</p>
+        <p>Scroll down to see the footer.</p>
+        <div style="height: 500px;"></div>
+    </main>
+
+    <footer class="footer-container">
+        <div class="footer-content">
+            <div class="footer-logo-section">
+                
+                <p>
+                    Discover excellence in education at CMIS, where we seamlessly integrate the **NCERT curriculum** with international standards. As one of the top international **CBSE schools in Coimbatore**, we offer a comprehensive and globally relevant education for students aged 3 to 18.
+                </p>
+                
+                <p style="font-weight: bold; margin-bottom: 5px;">Follow us on</p>
+                <div class="follow-us">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-columns">
+                <div class="footer-column contact-info">
+                    <h3>VISIT US</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Chandramari International School, No.68, Kalapatti - Vilankurichi Road, Kalapatti, Coimbatore</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 93634 88300</p>
+                    <p><i class="fas fa-envelope"></i> info@cmis.ac.in</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>RESOURCES</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Admissions</a></li>
+                        <li><a href="#">Facilities</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>ACADEMICS</h3>
+                    <ul>
+                        <li><a href="#">Balavatika 1 to CBSE Class 2</a></li>
+                        <li><a href="#">CBSE Class 3 to 5</a></li>
+                        <li><a href="#">CBSE Class 6 to 8</a></li>
+                        <li><a href="#">CBSE Class 9 to 12</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="footer-bottom-bar">
+        <p>&copy; 2025 Chandramari International School</p>
+        <div class="footer-bottom-links">
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Sitemap</a>
+        </div>
+    </div>
+    
+    <a href="#" class="scroll-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></a>
+    <a href="#" class="whatsapp-float" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+</body>
+</html>
