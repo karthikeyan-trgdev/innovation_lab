@@ -347,6 +347,7 @@ body {
 .top-footer .layout-two ul{
     list-style-type: none;
     padding-left: 0px;
+    margin-top: 50px;
 }
 .top-footer .layout-two ul li{
     font-size: 18px;
